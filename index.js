@@ -1,5 +1,6 @@
 import { WhatsappJob } from "./entities/index.js";
 import { logger, consumer } from "./config/index.js";
+import { wrapError } from "./utils.js";
 
 try {
     await consumer.connect()
@@ -8,11 +9,11 @@ try {
     
     await consumer.run({
         eachMessage: async ({ _, __, message }) => {
-            whatsappJob.run(message.value.toString());
+            await whatsappJob.run(message.value.toString());
         },
     });
     
     logger.info("SUCCESS STARTING NOTIFICATION SERVICE!");
 } catch (err) {
-    logger.error(`ERROR STARTING NOTIFICATION SERVICE:`, err);
+    logger.error(wrapError('ERROR STARTING NOTIFICATION SERVICE:', err));
 }

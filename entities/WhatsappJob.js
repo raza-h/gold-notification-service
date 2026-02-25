@@ -1,6 +1,6 @@
 import { twilioClient, logger } from '../config/index.js';
 import { FROM_NUMBER } from '../constants.js';
-import { getUniqueStrings } from '../utils.js';
+import { getUniqueStrings, wrapError } from '../utils.js';
 
 class WhatsappJob {
     async run(data) {
@@ -28,7 +28,7 @@ class WhatsappJob {
             await Promise.all(promises);
             logger.info('SUCCESS COMPLETING JOB, NOTIFICATIONS SENT!');
         } catch (err) {
-            logger.error('ERROR SENDING NOTIFICATION:', err);
+            logger.error(wrapError('ERROR SENDING NOTIFICATION:', err));
         }
 
     }
