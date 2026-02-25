@@ -14,5 +14,5 @@ try {
     
     logger.info("SUCCESS STARTING NOTIFICATION SERVICE!");
 } catch (err) {
-    logger.error(`ERROR STARTING NOTIFICATION SERVICE: ${err.message}`);
+    logger.error(`ERROR STARTING NOTIFICATION SERVICE:`, err);
 }
