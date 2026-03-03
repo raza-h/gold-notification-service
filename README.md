@@ -1,4 +1,4 @@
-# Gold Notification Service - WhatsApp 📣
+# AurumPulse: Gold Notification Service - WhatsApp 📣
 
 A Node.js service that consumes messages from a Kafka topic and sends WhatsApp alerts. Ideal for real-time notifications and automating message delivery via WhatsApp.
 
